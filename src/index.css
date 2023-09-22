@@ -1,11 +1,39 @@
-* {
+body {
+  color: #fff;
+  text-align: center;
+  background-color: #212529;
+}
+
+
+.restaurants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+  gap: 10px;
   
+}
+
+.card-body {
+  padding: 10px;
+}
+.container {
+  justify-content: center;
+  text-align: center;
+}
+
+/* .form {
+  justify-content: center;
+} */
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border_box;
   font-family: 'Prompt', sans-serif;
-}
+} */
 
-.card{
+/* .card{
   margin-top: 10cm;
-}
+}  */ 
+
+ 
