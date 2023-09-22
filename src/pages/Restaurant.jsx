@@ -37,7 +37,7 @@ const Restaurant = () => {
   return (
     <div>
       <h1>Restaurant</h1>
-      <form style={{margin:"10"}} className="d-flex">
+      <form  className="d-flex">
         <input
           type="text"
           className="form-control"

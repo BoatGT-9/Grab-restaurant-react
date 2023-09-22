@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import Restaurant from '../pages/Restaurant'
 // import'./index.css'
 
 const Navbar = () => {
@@ -20,7 +21,7 @@ const Navbar = () => {
         </li>
         
       </ul>
-  
+    
     </div>
   </div>
 </nav>

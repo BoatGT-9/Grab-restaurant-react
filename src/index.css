@@ -32,7 +32,6 @@ body {
   text-align: center;
 } 
 
-
 .form {
   justify-content: center;
 }
@@ -40,12 +39,18 @@ body {
 .btn{
   margin: 6px;
 }
+
 .form-control{
-  width: 20%;
-  
+  /* display: block; */
+  justify-content: center ;
 }
-.d-flex{
+
+.d-flex input {
+  width: 20%;
+  text-align: center;
   justify-content: center;
+  display: flex;
+  border: center;
   padding: 10px;
 }
 /* .card{
