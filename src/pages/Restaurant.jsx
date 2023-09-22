@@ -14,6 +14,7 @@ const config = {
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [searchText,setSearchText] = useState([]);
   useEffect(() => {
     const fethAllRes = async () => {
       try {
@@ -36,12 +37,26 @@ const Restaurant = () => {
   return (
     <div>
       <h1>Restaurant</h1>
+      <form style={{margin:"10"}} className="d-flex">
+        <input
+          type="text"
+          className="form-control"
+          name="name"
+          placeholder="Search"
+          value={searchText}
+          onChange={(event) => {
+            setSearchText(event.target.value);
+          }}
+        />
+      </form>
 
-
-      
       <div className="row">
         <div className="restaurants">
-          {restaurants.map((restaurant) => {
+            
+          {restaurants.filter((restaurant)=>{
+            return restaurant.name.includes(searchText);
+          })
+          .map((restaurant) => {
             return (
               <Card
                 handleDelete={handleDelete}

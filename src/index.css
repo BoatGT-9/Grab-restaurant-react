@@ -39,7 +39,14 @@ body {
 .btn{
   margin: 6px;
 }
-
+.form-control{
+  width: 20%;
+  
+}
+.d-flex{
+  justify-content: center;
+  padding: 10px;
+}
 /* .card{
   margin-top: 10cm;
 }  */ 

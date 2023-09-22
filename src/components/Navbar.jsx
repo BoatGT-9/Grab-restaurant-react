@@ -18,9 +18,7 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link "style={{color:"#fff"}} to="/add">Add</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link "style={{color:"#fff"}} to="/search"  >Search</Link>
-        </li>
+        
       </ul>
   
     </div>
