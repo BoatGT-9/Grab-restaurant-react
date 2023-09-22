@@ -1,60 +1,61 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+// import {Link} from 'react-router-dom';
 import axios from "axios";
-
-const URL = import.meta.env.VITE_BASE_URL;
-const USERNAME = import.meta.env.VITE_BASE_USERNAME;
-const PASSWORD = import.meta.env.VITE_BASE_PASSWORD;
+import Card from '../components/Card';
+const URL = import.meta.env.VITE_BASE_URL
+const USERNAME = import.meta.env.VITE_BASE_USERNAME
+const PASSWORD = import.meta.env.VITE_BASE_PASSWORD
 const config = {
-  auth: {
-    username: USERNAME,
-    password: PASSWORD,
-  },
-};
+    auth:{
+        username:USERNAME,
+        password:PASSWORD
+    }
+}
 
 const Restaurant = () => {
-  const [restaurants, setRestaurant] = useState([]);
-  useEffect(() => {
-    const fethAllRes = async () => {
-      try {
-        const res = await axios.get(`${URL}/restaurant`, config);
-        setRestaurant(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fethAllRes();
-  }, []);
+    const [restaurants , setRestaurants] = useState([]);
+    useEffect(()=>{
+        const fethAllRes = async() => {
+            try {
+                const res = await axios.get(`${URL}/restaurant`,config) 
+                setRestaurants(res.data)
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fethAllRes();
+    },[])
   return (
-    <div>   
-      Restaurant
-      <div className="row">
-        <div className="restaurant">
-          {restaurants.map((restaurant) => {
-            return (
-              <div className="card" style={{width: "18rem"}} key={restaurant.id}>
-                <img
-                  src={restaurant.imageurl}
-                  alt=""
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="title">{restaurant.name}</h5>
-                  <p className="cardtext">{restaurant.type}</p>
-                  <Link to="" className="btn btn-danger px-2">
-                    delete
-                  </Link>
-                  <Link to="" className="btn btn-warning px-2">
-                    edit
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
+    <div>
+        <h1>Restaurant</h1>
+        <div className='row'>
+            <div className='restaurants'>
+                {
+                  restaurants.map(restaurant =>{
+                    return(
+                        <Card restaurant={restaurant} key={restaurant.id}/>
+                    )
+                  })
+                }
+            </div>
         </div>
-      </div>
-    </div>
-  );
-};
+{/* <div className='card' style={{width:"18rem"}} key={restaurants.id}>
+                            <img src={restaurants.imageurl} alt="" className='card-img-top' />
+                            <div className='card-body'>
+                                <h5 className='title'>{restaurants.name}</h5>
+                                <p className='card-text'>{restaurants.type}</p>
+                                <Link  to="" className='btn btn-danger px-2 mx-1' > 
+                                    Delete
+                                </Link>
+                                <Link  to="" className='btn btn-warning px-2 mx-1' > 
+                                    Edit
+                                </Link>
 
-export default Restaurant;
+                            </div>
+                        </div> */}
+
+    </div>
+  )
+}
+ 
+export default Restaurant

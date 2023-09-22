@@ -20,8 +20,9 @@ function App() {
         </Routes>
       </div>
       </BrowserRouter>
-      <Card/>
-    </>
+      {/* <Card/> */}
+
+     </>
   )
 }
 
