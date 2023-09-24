@@ -7,9 +7,9 @@
 }
 
 body {
-  color: #fff;
+  color: #000;
   text-align: center;
-  background-color: #212529;
+  background-color: #fff  ;
 }
 
 .restaurants {
@@ -20,9 +20,17 @@ body {
   gap: 10px;
   
 }
- 
+Link{
+  color: #000;
+}
+
+Link{
+  color:orange;
+}
+
 .card-body  {
   padding: 10px;
+  
 }
 .card-body :hover{
   box-shadow: 5px;
@@ -41,20 +49,32 @@ body {
 }
 
 .form-control{
-  /* display: block; */
-  justify-content: center ;
+  display: grid;
+
+  justify-content: center;
 }
 
-.d-flex input {
+.d-flex  {
+  margin: auto;
   width: 20%;
   text-align: center;
   justify-content: center;
-  display: flex;
-  border: center;
+  display: grid;
   padding: 10px;
 }
-/* .card{
-  margin-top: 10cm;
-}  */ 
 
+.btn {
+  background-color: #000;
+  width: 200px;
+  color: #fff;
+  }
+
+.btn:hover {
+  color: #fff;
+}
+
+/* .card-img-top :hover{
+  box-shadow: 10cm;
+  zoom:30rem ;
+} */
  
