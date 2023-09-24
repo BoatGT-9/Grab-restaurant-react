@@ -4,7 +4,7 @@ import Restaurant from "../pages/Restaurant";
 const Card = ( {restaurant,handleDelete} ) => {
     // console.log(restaurant.imageurl);
   return (
-    <div className='card shadow-sm ' style={{width:"18rem"}} key={restaurant.id}>
+    <div className='card shadow ' style={{width:"18rem"}} key={restaurant.id}>
                             <img src={restaurant.imageurl} alt="" className='card-img-top' />
                             <div className='card-body'>
                                 <h5 className='title'>{restaurant.name}</h5>

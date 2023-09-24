@@ -7,6 +7,12 @@
 }
 
 body {
+  width: 100%;
+  height:calc(100vh - 110px) ;
+  /* background-image: url('https://e0.pxfuel.com/wallpapers/1016/985/desktop-wallpaper-snow-mountain-night-landscape-minimalist-minimalism.jpg'); */
+  background-size:cover;
+  position: relative;
+  overflow: hidden;
   color: #000;
   text-align: center;
   background-color: #fff  ;
@@ -50,8 +56,8 @@ Link{
 
 .form-control{
   display: grid;
-
-  justify-content: center;
+  /* text-align: center; */
+  /* justify-content: center; */
 }
 
 .d-flex  {
