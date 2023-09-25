@@ -39,10 +39,23 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <div className="Signin">
+            <ul className="nav justify-content-end">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/Signin">
+                  Signin
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/SignUp">
+                  SignUp
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
-
 export default Navbar;

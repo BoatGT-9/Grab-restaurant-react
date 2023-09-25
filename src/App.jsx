@@ -6,6 +6,8 @@ import Restaurant from "./pages/Restaurant";
 // import Search from "./pages/Search"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Edit from "./pages/Edit";
+import Signin from "./pages/Signin";
+import SignUp from "./pages/SignUp";
 // import'./index.css'
 
 // const Apps  = () => {
@@ -20,8 +22,6 @@ function App() {
 
   } );
   return ( 
-
-    
     <>
       <BrowserRouter>
         <NavBar />
@@ -31,6 +31,8 @@ function App() {
             <Route path="/" element={<Restaurant />} />
             <Route path="/add" element={<Add />} />
             {/* <Route path="/search" element={<Search/>}/> */}
+            <Route path="/Signin" element={<Signin/>}/>
+            <Route path="/SignUp" element={<SignUp/>}/>
             <Route path="/edit/:restaurantId" element={<Edit />} />
           </Routes>
         </div>

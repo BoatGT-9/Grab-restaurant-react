@@ -56,6 +56,7 @@ Link{
 
 .form-control{
   display: grid;
+  margin: 3px;
   /* text-align: center; */
   /* justify-content: center; */
 }
