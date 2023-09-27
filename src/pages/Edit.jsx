@@ -62,7 +62,7 @@ const Edit = () => {
     <div className="container">
     <h1>Grab Restaurant</h1>
     <div className="row form">
-      <div className="col-6 card justify-content-center">
+      <div className="col-6 card justify-content-center shadow">
         <h5 className="card-header"> Edit Restaurant </h5>
         <div className="error">{error && "Somthing went wrong"}</div>
         <div className="card-body">

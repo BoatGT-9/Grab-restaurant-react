@@ -42,12 +42,12 @@ const Navbar = () => {
           <div className="Signin">
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Signin">
+                <Link className="nav-link active"style={{ color: "#000" }} aria-current="page" to="/Signin">
                   Signin
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/SignUp">
+              <li className="nav-item ">
+                <Link className="nav-link"style={{ color: "#000" }} to="/SignUp">
                   SignUp
                 </Link>
               </li>

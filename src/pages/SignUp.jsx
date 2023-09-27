@@ -1,6 +1,20 @@
 import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 const SignUp = () => {
+  
+  // const [username,setusername] = useState({
+  //   username:'',
+  //   email:'',
+  //   password:'',
+  // })
+  // const [errors,setError] = useState({})
+  // const Input =(event)=>{
+  //   setusername(Prev => ({...Prev,[event.target.name]:[event.target.value]}))
+  // }
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  //   setError(validation(username));
+  // }
     // const [username, setusername] = useState({
     //     name: "",
     //     email: "",
@@ -32,19 +46,11 @@ const SignUp = () => {
     //     setError(false);
     //   }
     
-
-
-
-
-
-
-
-
   return (
     <div className='container'>
         <h1>Sign Up</h1>
         <div className="row form">
-        <div className="col-6 card justify-content-center">
+        <div className="col-6 card justify-content-center shadow">
           <h5 className="card-header"> Signin User </h5>
         <div className='card-body'>
         <form>
@@ -80,8 +86,8 @@ const SignUp = () => {
                   />
               
             </div>
-            <Link to="" className="btn btn-success" > Sign in </Link>
-              <Link to="/SignUp" className="btn btn-warning" > Sign Up </Link>
+            <Link to="/Signin" className="btn btn-success" > Sign in </Link>
+              <Link to="" className="btn btn-warning" > Sign Up </Link>
               <Link to="/" className="btn btn-danger" > Cancel </Link>
               
          
