@@ -80,8 +80,9 @@ Link{
   color: #fff;
 }
 
-/* .card-img-top :hover{
-  box-shadow: 10cm;
-  zoom:30rem ;
-} */
+.card-img-top{
+  height: 12rem;
+  width: 18rem;
+  
+}
  

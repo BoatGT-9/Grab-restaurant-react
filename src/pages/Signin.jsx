@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { Prev } from 'react-bootstrap/esm/PageItem';
 import { Link } from "react-router-dom";
-import validation from '../signinvalidation';
+import Validation from '../signinvalidation';
 
 
 
@@ -9,15 +9,15 @@ const Signin = () => {
 
     const [username,setusername] = useState({
       username:'',
-      password:'',
+      password:''
     })
-    const [errors,setError] = useState({})
+    const [errors,setErrors] = useState({})
     const Input =(event)=>{
       setusername(Prev => ({...Prev,[event.target.name]:[event.target.value]}))
     }
     const handleClick = (event) => {
       event.preventDefault();
-      setError(validation(username));
+      setErrors(Validation(username));
     }
 // console.log(errors);
   return (
@@ -37,7 +37,7 @@ const Signin = () => {
                   onChange={Input}
                   placeholder="Username"
                 />
-                {errors.username && <span className='text-danger'>{errors.username}</span>}<br/>
+                {errors.name && <span className='text-danger'>{errors.name}</span>}<br/>
                 <label htmlFor="name"> Password </label>
                 <input
                   type="password"
@@ -53,13 +53,13 @@ const Signin = () => {
                 <input
                   type="password"
                   className="form-control"
-                  name="password"
+                  name="confrime_password"
                   onChange={Input}
-                  placeholder="password"
+                  placeholder="confrime password"
                   required
                  
                 />
-                 {errors.password && <span className='text-danger'>{errors.password}</span>}
+                 {errors.confrime_password && <span className='text-danger'>{errors.confrime_password}</span>}
                
 
               </div>
