@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Restaurant from "../pages/Restaurant";
 // import'./index.css'
+import authService from "../service/auth.service";
 
 const Navbar = () => {
+  const [user, setUser] = useState(authService.getCrrentUser());
+
   return (
     <nav className="navbar navbar-expand-lg navbar-drak  bg-drak">
       <div className="container-fluid">
@@ -39,20 +42,43 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <div className="Signin">
-            <ul className="nav justify-content-end">
-              <li className="nav-item">
-                <Link className="nav-link active"style={{ color: "#000" }} aria-current="page" to="/Signin">
-                  Signin
-                </Link>
-              </li>
-              <li className="nav-item ">
-                <Link className="nav-link"style={{ color: "#000" }} to="/SignUp">
-                  SignUp
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <div className="Signin">
+          {!user && (
+              <ul className="nav justify-content-end">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    style={{ color: "#000" }}
+                    aria-current="page"
+                    to="/Signin"
+                  >
+                    Signin
+                  </Link>
+                </li>
+                <li className="nav-item ">
+                  <Link
+                    className="nav-link"
+                    style={{ color: "#000" }}
+                    to="/SignUp"
+                  >
+                    SignUp
+                  </Link>
+                </li>
+              </ul>
+                )}
+            {user && (
+                 <ul className="nav justify-content-end">
+                  <li className="nav-item">
+                    <Link 
+                    className="nav-link"
+                    style={{color:"#000"}}
+                    to="/logout"
+                    > Logout</Link>
+                  </li>
+                </ul>
+              )
+              }
+            </div>
         </div>
       </div>
     </nav>

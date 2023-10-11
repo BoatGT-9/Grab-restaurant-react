@@ -1,23 +1,30 @@
 import React, { useState } from 'react'
 // import { Prev } from 'react-bootstrap/esm/PageItem';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Validation from '../signinvalidation';
-
-
-
+import authService from '../service/auth.service';
 const Signin = () => {
-
+  const navigate = useNavigate()
     const [username,setusername] = useState({
       username:'',
       password:''
     })
     const [errors,setErrors] = useState({})
-    const Input =(event)=>{
-      setusername(Prev => ({...Prev,[event.target.name]:[event.target.value]}))
+    const Input =(e)=>{
+      setusername((prev) => ({...prev,[e.target.name]:e.target.value}))
     }
-    const handleClick = (event) => {
+    const handleClick = async (event) => {
       event.preventDefault();
+    try {
+      const login = await authService.login(username.username,username.password);
+      console.log(login.status);
+      if (login.status == 200) {
+        
+        navigate("/"); 
+      }
+    } catch (error) {
       setErrors(Validation(username));
+    }
     }
 // console.log(errors);
   return (
@@ -31,13 +38,17 @@ const Signin = () => {
               <div className="form-group">
                 <label htmlFor="name"> User Name </label>
                 <input
+
                   type="text"
                   className="form-control"
-                  name="name"
+                  name="username"
                   onChange={Input}
                   placeholder="Username"
+                  value={username.username}
+
                 />
                 {errors.name && <span className='text-danger'>{errors.name}</span>}<br/>
+                
                 <label htmlFor="name"> Password </label>
                 <input
                   type="password"
@@ -45,11 +56,12 @@ const Signin = () => {
                   name="password"
                   onChange={Input}
                   placeholder="password"
-                  required
+                  // required
+                  value={username.password}
                 />
                 {errors.password && <span className='text-danger'>{errors.password}</span>} <br/>
                 
-                <label htmlFor="name"> Conflime Password </label>
+                {/* <label htmlFor="name"> Conflime Password </label>
                 <input
                   type="password"
                   className="form-control"
@@ -60,7 +72,7 @@ const Signin = () => {
                  
                 />
                  {errors.confrime_password && <span className='text-danger'>{errors.confrime_password}</span>}
-               
+                */}
 
               </div>
               <Link to="" className="btn btn-success"  onClick={handleClick}> Sign in </Link>

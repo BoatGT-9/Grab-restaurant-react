@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Edit from "./pages/Edit";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
+import Logout from "./pages/logout";
 // import'./index.css'
 
 // const Apps  = () => {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/Signin" element={<Signin/>}/>
             <Route path="/SignUp" element={<SignUp/>}/>
             <Route path="/edit/:restaurantId" element={<Edit />} />
+            <Route path="/logout" element={<Logout/>}/>
           </Routes>
         </div>
       </BrowserRouter>
