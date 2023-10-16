@@ -9,6 +9,11 @@ import Edit from "./pages/Edit";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
 import Logout from "./pages/logout";
+import Layout from "./components/layout";
+import Profile from "./pages/Profile";
+import protectRoute from "./pages/protectRoute";
+import AdminRoute from "./pages/AdminRoute";
+import Notallow from './pages/Notallow';
 // import'./index.css'
 
 // const Apps  = () => {
@@ -20,22 +25,30 @@ import Logout from "./pages/logout";
 function App() {
   useEffect(() => {
     document.title = "Grab Restaurant";
-
-  } );
-  return ( 
+  });
+  return (
     <>
       <BrowserRouter>
-        <NavBar />
-
         <div className="App">
           <Routes>
-            <Route path="/" element={<Restaurant />} />
-            <Route path="/add" element={<Add />} />
-            {/* <Route path="/search" element={<Search/>}/> */}
-            <Route path="/Signin" element={<Signin/>}/>
-            <Route path="/SignUp" element={<SignUp/>}/>
-            <Route path="/edit/:restaurantId" element={<Edit />} />
-            <Route path="/logout" element={<Logout/>}/>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Restaurant />} />
+              <Route
+                path="/add"
+                element={
+                  <AdminRoute>
+                    <Add />
+                  </AdminRoute>
+                }
+              />
+              {/* <Route path="/search" element={<Search/>}/> */}
+              <Route path="/Signin" element={<Signin />} />
+              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/edit/:restaurantId" element={<Edit />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/Profile" element={<Profile />} />
+              <Route path='/notallow' element={<Notallow/>}/>
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>

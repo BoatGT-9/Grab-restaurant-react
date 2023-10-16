@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Restaurant from "../pages/Restaurant";
 // import'./index.css'
 import authService from "../service/auth.service";
+import { useAuthContext } from "../context/Authcontext";
 
 const Navbar = () => {
-  const [user, setUser] = useState(authService.getCrrentUser());
+  // const [user, setUser] = useState(authService.getCrrentUser());
+  const {user, logout} = useAuthContext();
+  const navigate = useNavigate();
+  const handleLogout = () =>{
+    logout();
+    navigate("/signin");
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-drak  bg-drak">
@@ -35,12 +42,14 @@ const Navbar = () => {
               >
                 Home
               </Link>
-            </li>
-            <li className="nav-item">
+             </li>
+             {user &&( 
+               <li className="nav-item">
               <Link className="nav-link " style={{ color: "#000" }} to="/add">
                 Add
               </Link>
             </li>
+              )}
           </ul>
             <div className="Signin">
           {!user && (
@@ -67,13 +76,19 @@ const Navbar = () => {
               </ul>
                 )}
             {user && (
-                 <ul className="nav justify-content-end">
+                 <ul className="nav justify-content-end ">
                   <li className="nav-item">
+                    <span className="mr-sm2  " style={{margin:"auto"}}>
+                     <Link to={"/profile"}>
+                     {user.username}
+                     </Link> 
                     <Link 
-                    className="nav-link"
+                    className="logout"
                     style={{color:"#000"}}
-                    to="/logout"
+                    to="/logout" onClick={handleLogout}
                     > Logout</Link>
+                    </span>
+                    
                   </li>
                 </ul>
               )

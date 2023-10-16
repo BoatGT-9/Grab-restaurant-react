@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Validation from '../signinvalidation';
 import authService from '../service/auth.service';
+import { useAuthContext } from '../context/Authcontext';
 const Signin = () => {
   const navigate = useNavigate()
     const [username,setusername] = useState({
@@ -10,18 +11,18 @@ const Signin = () => {
       password:''
     })
     const [errors,setErrors] = useState({})
+    const {login} = useAuthContext(); 
     const Input =(e)=>{
       setusername((prev) => ({...prev,[e.target.name]:e.target.value}))
     }
     const handleClick = async (event) => {
       event.preventDefault();
     try {
-      const login = await authService.login(username.username,username.password);
-      console.log(login.status);
-      if (login.status == 200) {
-        
-        navigate("/"); 
-      }
+      const current = await authService.login(username.username,username.password);
+      console.log(current.status);
+      login (current);
+      navigate("/"); 
+      
     } catch (error) {
       setErrors(Validation(username));
     }
