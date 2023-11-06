@@ -13,7 +13,7 @@ import Layout from "./components/layout";
 import Profile from "./pages/Profile";
 import protectRoute from "./pages/protectRoute";
 import AdminRoute from "./pages/AdminRoute";
-import Notallow from './pages/Notallow';
+import Notallow from "./pages/NotAllow";
 // import'./index.css'
 
 // const Apps  = () => {
@@ -26,6 +26,9 @@ function App() {
   useEffect(() => {
     document.title = "Grab Restaurant";
   });
+  
+  
+
   return (
     <>
       <BrowserRouter>
@@ -41,13 +44,22 @@ function App() {
                   </AdminRoute>
                 }
               />
+              <Route
+                path="/edit/:restaurantId"
+                element={
+                  <AdminRoute>
+                    <Edit />
+                  </AdminRoute>
+                }
+              />
               {/* <Route path="/search" element={<Search/>}/> */}
-              <Route path="/Signin" element={<Signin />} />
               <Route path="/SignUp" element={<SignUp />} />
-              <Route path="/edit/:restaurantId" element={<Edit />} />
+              <Route path="/Signin" element={<Signin />} />
+
+
               <Route path="/logout" element={<Logout />} />
               <Route path="/Profile" element={<Profile />} />
-              <Route path='/notallow' element={<Notallow/>}/>
+              <Route path="/notallow" element={<Notallow />} />
             </Route>
           </Routes>
         </div>

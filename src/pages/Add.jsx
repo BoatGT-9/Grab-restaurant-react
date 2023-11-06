@@ -3,17 +3,18 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
-
-const URL = import.meta.env.VITE_BASE_URL;
-const USERNAME = import.meta.env.VITE_BASE_USERNAME;
-const PASSWORD = import.meta.env.VITE_BASE_PASSWORD;
-const config = {
-  auth: {
-    username: USERNAME,
-    password: PASSWORD,
-  },
-};
+import authHeader from "../service/auth.headers";
+import API from "../service/api"
+// const URL = import.meta.env.VITE_BASE_URL;
+// const USERNAME = import.meta.env.VITE_BASE_USERNAME;
+// const PASSWORD = import.meta.env.VITE_BASE_PASSWORD;
+// const config = {
+//   auth: {
+//     username: USERNAME,
+//     password: PASSWORD,
+//   },
+//   headers:authHeader(),
+// };
 
 const Add = () => {
   const [restaurant, setRestaurant] = useState({
@@ -30,7 +31,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${URL}/restaurant`,restaurant, config);
+      await API.post(`/restaurant`,restaurant,);
       navigate("/")
     } catch (error) {
       console.error(error);
@@ -53,7 +54,7 @@ const Add = () => {
       <div className="row form">
         <div className="col-6 card justify-content-center shadow">
           <h5 className="card-header"> Add new Restaurant </h5>
-          <div className="error">{error && "Somthing went wrong"}</div>
+          <div className="error" style={{color:"red"}}>{error && "Somthing went wrong"}</div>
           <div className="card-body">
             <form>
               <div className="form-group">

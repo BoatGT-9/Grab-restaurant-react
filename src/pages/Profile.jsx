@@ -13,15 +13,15 @@ const Profile = () => {
           <div className="card-title"></div>
           <div className="card-text"></div>
           <b>Token:</b>
-          {state.accessToken.subString(0, 20)}...
-          {state.accessToken.subString(state.accessToken.length - 20)}
+          {state.accessToken.substring(0, 20)}...
+          {state.accessToken.substring(state.accessToken.length - 20)}
         </div>
         <div className="card-text">
           <b>ID:</b>
           <br/>
           {user.id}
           <b>Email:</b>
-          <br/>
+          <br/>bo
           {user.email}
           <b>Roles:</b>
           <br/>
@@ -37,3 +37,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

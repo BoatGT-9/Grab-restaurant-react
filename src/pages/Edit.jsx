@@ -3,16 +3,19 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import authHeader from '../service/auth.headers';
+import API from '../service/api'
 
-const URL = import.meta.env.VITE_BASE_URL;
-const USERNAME = import.meta.env.VITE_BASE_USERNAME;
-const PASSWORD = import.meta.env.VITE_BASE_PASSWORD;
-const config = {
-  auth: {
-    username: USERNAME,
-    password: PASSWORD,
-  },
-};
+// const URL = import.meta.env.VITE_BASE_URL;
+// const USERNAME = import.meta.env.VITE_BASE_USERNAME;
+// const PASSWORD = import.meta.env.VITE_BASE_PASSWORD;
+// const config = {
+//   auth: {
+//     username: USERNAME,
+//     password: PASSWORD,
+//   },
+//   headers:authHeader(),
+// };
 
 
 const Edit = () => {
@@ -30,7 +33,7 @@ const Edit = () => {
       useEffect(() => {
         const fetchAllRestaurants = async () => {
           try {
-            const res = await axios.get(`${URL}/restaurant/${restaurantId}`, config);
+            const res = await API.get(`/restaurant/${restaurantId}`, );
             setRestaurant(res.data.result);
           } catch (error) {
             console.error(error);
@@ -42,7 +45,7 @@ const Edit = () => {
       const handleClick = async (e) => {
         e.preventDefault();
         try {
-          await axios.put(`${URL}/restaurant/${restaurantId}`,restaurant, config);
+          await API.put(`/restaurant/${restaurantId}`,restaurant);
           navigate("/")
         } catch (error) {
           console.error(error);

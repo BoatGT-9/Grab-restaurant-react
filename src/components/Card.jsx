@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Restaurant from "../pages/Restaurant";
+import {useAuthContext} from '../context/Authcontext'
+// import Restaurant from "../pages/Restaurant";
 const Card = ( {restaurant,handleDelete} ) => {
-    // console.log(restaurant.imageurl);
+        const {user} =  useAuthContext
   return (
     <div className='card shadow ' style={{width:"18rem"}} key={restaurant.id}>
                             <img src={restaurant.imageurl} alt="" className='card-img-top' />
